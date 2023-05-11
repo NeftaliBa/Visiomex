@@ -1,10 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../resources/css/navbar.css">
+    <link rel="stylesheet" href="../resources/css/MostrarGrafica.css">
+    <title>Document</title>
+</head>
+<body>
+
+<header> 
+    <div class="espacio">
+        <nav class="navegacion">
+            <ul class="menu">
+                <p class="logo">Visiomex</p>
+                <li><a href="Logout.php" class="owo">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+</body>
+</html>
+
 <?php
 
 $DIAS =$_POST["dias"]; //esta variable contiene desde que fecha quiere conseguir datos el usuario 
 $DATE =$_POST["fecha"];//esta variable contiene la fecha exacta en la que el usaurio quiere conseguir datos
 
 // conectare a base de datos
-$conn = new mysqli("localhost", "root", "Admin123?", "visiomex");
+$conn = new mysqli("localhost", "root", "M33ty-2003", "visiomex");
 
 // Verificar la conexión
 if ($conn->connect_error) {
@@ -57,14 +84,30 @@ if (empty($_POST['dias'])) {
         //Sentencia para imprimir todos los registros del actualaño
         $sql = "SELECT * FROM registro WHERE YEAR(fecha) = '$DIAS'"; 
         $resultado_all = $conn->query($sql);
+        ?>
+        <table class="amortization">
+         <thead class="info">
+             <th>Fecha</th>
+             <th>Con cubrebocas</th>
+             <th>Sin Cubrebocas</th>
+         </thead>
+     <?php
         if ($resultado_all->num_rows > 0) {
             foreach ($resultado_all as $fila) {
                 $con_cc = $fila['con_cc'];
                 $con_sc = $fila['con_sc'];
                 $fecha = $fila['fecha'];
-                echo "fecha: ". $fecha . "  personas con cubrebocas: " . $con_cc . ",   personas sin cubrebocas:    " . $con_sc  ."<br>";
-
-            }
+                ?>
+                <tr>
+                <td>    <?php echo       $fecha             ?>     </td>
+                <td>    <?php echo round($con_cc)     ?>     </td>
+                <td>    <?php echo round($con_sc)  ?>     </td>
+                </tr>
+                <?php
+            }                
+            ?>
+            </table> 
+            <?php
         } else {
             echo "No se encontraron resultados.";
         }
@@ -102,22 +145,51 @@ if (empty($_POST['dias'])) {
         $fila = $resultado_sc->fetch_assoc();
         $total_suma_sc = $fila["total_suma"];
 
-        //Imprimimos la sumas realizadas
-        print("el total de personas que fueron detectadas CON cubrebocas en los ultimo/s" . $DIAS ."dias es de: ". $total_suma_cc."<br>");
-        print("el total de personas que fueron detectadas SIN cubrebocas en los ultimo/s" . $DIAS ."dias es de: ". $total_suma_sc."<br>");
+        $personas = $total_suma_sc + $total_suma_cc;
+        $porc_conc = ($total_suma_cc * 100)/$personas;
+        $porc_sinc = ($total_suma_sc *100)/$personas;
 
+        //Imprimimos la sumas realizadas
+        ?>
+        <div class="canypor">
+            <p class="cteng">En los ultimos <?php echo $DIAS ?> días, <?php echo $personas ?> personas fueron detectadas y de esas <?php echo $personas ?> personas: </p>
+            <p class="ctcc"> <?php  echo $total_suma_cc  ?> estaban usando cubrebocas</p>
+            <p class="ctsc"><?php  echo $total_suma_sc  ?> no estaban usando cubrebocas </p>
+            <p>Por lo tanto</p>
+            <p class="ppcc">La cantidad de personas que usaron cubrebocas en los ultimos <?php echo $DIAS ?> días, es del <?php echo $porc_conc ?> %</p>
+            <p class="ppsc">La cantidad de personas que no usaron cubrebocas en los ultimos <?php echo $DIAS ?> días, es del <?php echo $porc_sinc ?> %</p>
+        </div>
+        <?php
         do{
             $sql ="SELECT * FROM registro WHERE id BETWEEN $id_1 AND $id_2";
             $resultado_all = $conn->query($sql);
             if ($resultado_all->num_rows > 0) {
+                ?>
+                   <table class="amortization">
+                    <thead class="info">
+                        <th>Fecha</th>
+                        <th>Con cubrebocas</th>
+                        <th>Sin Cubrebocas</th>
+                    </thead>
+                <?php
                 foreach ($resultado_all as $fila) {
                     // Acceder a los valores de cada columna en la fila
                     $con_cc = $fila['con_cc'];
                     $con_sc = $fila['con_sc'];
                     $fecha = $fila['fecha'];
-                    echo "fecha: ". $fecha . "  personas con cubrebocas: " . $con_cc . ",   personas sin cubrebocas:    " . $con_sc  ."<br>";
+                    ?>
+                    <tr>
+                    <td>    <?php echo       $fecha             ?>     </td>
+                    <td>    <?php echo round($con_cc)     ?>     </td>
+                    <td>    <?php echo round($con_sc)  ?>     </td>
+                    </tr>
+                    
+                    <?php
                 }
                 break;
+                ?>
+                </table> 
+                <?php
             }
             $id_1++; 
         }while ($resultado_all->num_rows == 0);
