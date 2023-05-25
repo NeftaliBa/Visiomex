@@ -1,3 +1,11 @@
+<?php
+$conn = new mysqli("localhost", "root", "M33ty-2003", "visiomex");
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,18 +35,14 @@
 
 
 <?php
-$conn = new mysqli("localhost", "root", "M33ty-2003", "visiomex");
-
-
 $DIAS =$_POST["dias"]; //esta variable contiene desde que fecha quiere conseguir datos el usuario 
 $DATE =$_POST["fecha"];//esta variable contiene la fecha exacta en la que el usaurio quiere conseguir datos
-
-
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+$año = 0;
+if ($DIAS > 30){
+    $año = 365;
 }
+
+
 
 //si la variable dias esta vacia indica que el usuario prefirio conocer una fecha exacta en vez de registros desde x dias
 if (empty($_POST['dias'])) {
@@ -110,111 +114,130 @@ if (empty($_POST['dias'])) {
     }
 
 }else{
+
+
+    switch ($DIAS) {
+        case 30:
+            echo "i es igual a 0";
+            break;
+        case 7:
+            echo "i es igual a 1";
+            break;
+        case 1:
+            echo "i es igual a 2";
+            break;
+        case $año:
+            $sql ="SELECT SUM(con_cc) as total_suma  FROM registro WHERE YEAR(fecha) = '$DIAS'";
+            $resultado_cc = $conn->query($sql);
+            $fila = $resultado_cc->fetch_assoc();
+            $total_suma_cc = $fila["total_suma"];
+    
+    
+            //sentencia que suma la columna de personas SIN cubrebocas del actual año
+            $sql ="SELECT SUM(con_sc) as total_suma  FROM registro WHERE YEAR(fecha) = '$DIAS'";
+            $resultado_sc = $conn->query($sql);
+            $fila = $resultado_sc->fetch_assoc();
+            $total_suma_sc = $fila["total_suma"];
+    
+            $personas = $total_suma_sc + $total_suma_cc;
+            $porc_conc = ($total_suma_cc * 100)/$personas;
+            $porc_sinc = ($total_suma_sc *100)/$personas;
+    
+    
+            ?>
+            <h2 class="titulo-culero">Este ultimo año</h2>
+                       <head>
+                   <!--Load the AJAX API-->
+                   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                   <script type="text/javascript">
+                    
+                     // Load the Visualization API and the corechart package.
+                     google.charts.load('current', {'packages':['corechart']});
+                    
+                     // Set a callback to run when the Google Visualization API is loaded.
+                     google.charts.setOnLoadCallback(drawChart);
+                    
+                     // Callback that creates and populates a data table,
+                     // instantiates the pie chart, passes in the data and
+                     // draws it.
+                     function drawChart() {
+                    
+                       // Create the data table.
+                       var data = new google.visualization.DataTable();
+                       data.addColumn('string', 'Topping');
+                       data.addColumn('number', 'Slices');
+                       data.addRows([
+                         ['Con cubrebocas', <?php echo $porc_conc ?> ],
+                         ['Sin cubrebocas', <?php echo $porc_sinc ?>]
+                       ]);
+                   
+                       // Set chart options
+                       var options = {
+                                      width: 400,
+                                      height: 300,
+                                      title: 'Personas detectadas',
+                                      colors: ['#406882', '#1A374D']
+                                    };
+                        
+                       // Instantiate and draw our chart, passing in some options.
+                       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                       chart.draw(data, options);
+                     }
+                   </script>
+                           </head>
+                 
+                <div id="chart_div" class= "grafica"></div>
+    
+            <?php
+            //Imprimimos la sumas realizadas
+            print("el total de personas que fueron detectadas con cubrebocas este año es de: ". $total_suma_cc."<br>");
+            print("el total de personas que fueron detectadas sin cubrebocas este año es de: ". $total_suma_sc."<br>");
+    
+            //Sentencia para imprimir todos los registros del actualaño
+            $sql = "SELECT * FROM registro WHERE YEAR(fecha) = '$DIAS'"; 
+            $resultado_all = $conn->query($sql);
+            ?>
+    
+            <table class="amortization">
+             <thead class="info">
+                 <th>Fecha</th>
+                 <th>Con cubrebocas</th>
+                 <th>Sin Cubrebocas</th>
+             </thead>
+         <?php
+            if ($resultado_all->num_rows > 0) {
+                foreach ($resultado_all as $fila) {
+                    $con_cc = $fila['con_cc'];
+                    $con_sc = $fila['con_sc'];
+                    $fecha = $fila['fecha'];
+                    ?>
+                    <tr>
+                    <td>    <?php echo       $fecha             ?>     </td>
+                    <td>    <?php echo round($con_cc)     ?>     </td>
+                    <td>    <?php echo round($con_sc)  ?>    </td>
+                    </tr>
+                    <?php
+                }                
+                ?>
+              <tfoot>
+                <td>    <p>Total</p>    </td>
+                <td>    <?php echo round($total_suma_cc)  ?>    </td>
+                <td>    <?php echo round($total_suma_sc)  ?>    </td>
+             </tfoot>
+                    
+                </table> 
+                <?php
+            } else {
+                echo "No se encontraron resultados.";
+            }
+            break;
+    }
+    
+
+
     if($DIAS > 30 ){
         //sentencia que suma la columna de personas CON cubrebocas del actual año
-        $sql ="SELECT SUM(con_cc) as total_suma  FROM registro WHERE YEAR(fecha) = '$DIAS'";
-        $resultado_cc = $conn->query($sql);
-        $fila = $resultado_cc->fetch_assoc();
-        $total_suma_cc = $fila["total_suma"];
 
-
-        //sentencia que suma la columna de personas SIN cubrebocas del actual año
-        $sql ="SELECT SUM(con_sc) as total_suma  FROM registro WHERE YEAR(fecha) = '$DIAS'";
-        $resultado_sc = $conn->query($sql);
-        $fila = $resultado_sc->fetch_assoc();
-        $total_suma_sc = $fila["total_suma"];
-
-        $personas = $total_suma_sc + $total_suma_cc;
-        $porc_conc = ($total_suma_cc * 100)/$personas;
-        $porc_sinc = ($total_suma_sc *100)/$personas;
-
-
-        ?>
-        <h2 class="titulo-culero">Este ultimo año</h2>
-                   <head>
-               <!--Load the AJAX API-->
-               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-               <script type="text/javascript">
-                
-                 // Load the Visualization API and the corechart package.
-                 google.charts.load('current', {'packages':['corechart']});
-                
-                 // Set a callback to run when the Google Visualization API is loaded.
-                 google.charts.setOnLoadCallback(drawChart);
-                
-                 // Callback that creates and populates a data table,
-                 // instantiates the pie chart, passes in the data and
-                 // draws it.
-                 function drawChart() {
-                
-                   // Create the data table.
-                   var data = new google.visualization.DataTable();
-                   data.addColumn('string', 'Topping');
-                   data.addColumn('number', 'Slices');
-                   data.addRows([
-                     ['Con cubrebocas', <?php echo $porc_conc ?> ],
-                     ['Sin cubrebocas', <?php echo $porc_sinc ?>]
-                   ]);
-               
-                   // Set chart options
-                   var options = {
-                                  width: 400,
-                                  height: 300,
-                                  title: 'Personas detectadas',
-                                  colors: ['#406882', '#1A374D']
-                                };
-                    
-                   // Instantiate and draw our chart, passing in some options.
-                   var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-                   chart.draw(data, options);
-                 }
-               </script>
-                       </head>
-             
-            <div id="chart_div" class= "grafica"></div>
-
-        <?php
-        //Imprimimos la sumas realizadas
-        print("el total de personas que fueron detectadas con cubrebocas este año es de: ". $total_suma_cc."<br>");
-        print("el total de personas que fueron detectadas sin cubrebocas este año es de: ". $total_suma_sc."<br>");
-
-        //Sentencia para imprimir todos los registros del actualaño
-        $sql = "SELECT * FROM registro WHERE YEAR(fecha) = '$DIAS'"; 
-        $resultado_all = $conn->query($sql);
-        ?>
-
-        <table class="amortization">
-         <thead class="info">
-             <th>Fecha</th>
-             <th>Con cubrebocas</th>
-             <th>Sin Cubrebocas</th>
-         </thead>
-     <?php
-        if ($resultado_all->num_rows > 0) {
-            foreach ($resultado_all as $fila) {
-                $con_cc = $fila['con_cc'];
-                $con_sc = $fila['con_sc'];
-                $fecha = $fila['fecha'];
-                ?>
-                <tr>
-                <td>    <?php echo       $fecha             ?>     </td>
-                <td>    <?php echo round($con_cc)     ?>     </td>
-                <td>    <?php echo round($con_sc)  ?>    </td>
-                </tr>
-                <?php
-            }                
-            ?>
-          <tfoot>
-            <td>    <p>Total</p>    </td>
-            <td>    <?php echo round($total_suma_cc)  ?>    </td>
-            <td>    <?php echo round($total_suma_sc)  ?>    </td>
-         </tfoot>
-                
-            </table> 
-            <?php
-        } else {
-            echo "No se encontraron resultados.";
-        }
     //SI NO SE ESCOGIO LA OPCION DE AÑO, SE REALIZA UN POCO DIFERENTE LAS SENTENCIAS POR ELLO ESTAS DOS MANERAS     
     }else{
         //sentencia para el id del ultimo registro
@@ -253,13 +276,6 @@ if (empty($_POST['dias'])) {
         $personas = $total_suma_sc + $total_suma_cc;
         $porc_conc = ($total_suma_cc * 100)/$personas;
         $porc_sinc = ($total_suma_sc *100)/$personas;
-
-
-
-
-
-
-
         //Imprimimos la sumas realizadas
         ?>
         <div class="canypor">

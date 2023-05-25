@@ -54,6 +54,7 @@ $año = date("Y");
     </form>
   </div>
 
+
   <div class="container_a">
     <div class= "contain_i-t">
       <form action= "../views/MostrarGrafica.php" method="POST">  
@@ -68,6 +69,8 @@ $año = date("Y");
       </div>
     <form>
   </div>
+
+
     
 </body>
 </html>

@@ -1,5 +1,14 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.titulo-culero{
+    margin-top: 0px;
+    text-align: center;
+}
+
 .amortization{
-    width: 80%;
+    width: 50%;
     /*
     margin-top: 8.5em;
     margin-left: 10%;
@@ -30,5 +39,9 @@ tr{
 }
 
 .amortization>:not(caption)>*>* {
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0.1rem;
+}
+
+.grafica{
+    margin-left: 29em;
 }
