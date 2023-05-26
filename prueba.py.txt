@@ -1,0 +1,36 @@
+import cv2
+
+# Carga el clasificador de Haar para la detección de rostros
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+# Captura de video en tiempo real desde la cámara
+cap = cv2.VideoCapture(0)
+
+while True:
+    # Lee el cuadro de video
+    ret, frame = cap.read()
+
+    # Convierte la imagen a escala de grises
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Detección de rostros en la imagen
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+
+    # Itera sobre los rostros detectados
+    for (x, y, w, h) in faces:
+        # Dibuja un rectángulo alrededor del rostro
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+
+        # Aplica la lógica de detección de cubrebocas
+        # Aquí debes implementar tus propias técnicas de procesamiento de imágenes
+
+    # Muestra el cuadro de video procesado
+    cv2.imshow('Cubrebocas Detector', frame)
+
+    # Rompe el bucle si se presiona la tecla 'q'
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Libera los recursos
+cap.release()
+cv2.destroyAllWindows()
