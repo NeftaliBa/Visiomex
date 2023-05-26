@@ -1,0 +1,47 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.titulo-culero{
+    margin-top: 0px;
+    text-align: center;
+}
+
+.amortization{
+    width: 50%;
+    /*
+    margin-top: 8.5em;
+    margin-left: 10%;
+    */
+    border-collapse: collapse;
+    border-color: #89aa89;
+    border-radius: 10px;
+
+}
+tr:nth-child(even){ background-color: rgba(0, 0, 0, 0.05); }
+tr:hover{
+    background: rgba(0, 0, 0, 0.075);
+    box-shadow: 0px 8px 32px rgb(114, 114, 114);
+    transition: all .1s;
+}
+
+
+.info{
+    background-color: #2c5363   ;
+    color: white;
+}
+
+th{
+    text-align: center;
+}
+tr{
+    text-align: center;
+}
+
+.amortization>:not(caption)>*>* {
+    padding: 0.5rem 0.1rem;
+}
+
+.grafica{
+    margin-left: 29em;
+}

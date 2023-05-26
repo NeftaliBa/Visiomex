@@ -1,6 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/css/navbar.css">
+    <link rel="stylesheet" href="/resources/css/MostrarGrafica.css">
+    <title>Document</title>
+
+</head>
+<body>
+
+<header> 
+    <div class="espacio">
+        <nav class="navegacion">
+            <ul class="menu">
+                <p class="logo">Visiomex</p>
+                <li><a href="Logout.php" class="owo">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
 <?php
 // Conectarse a la base de datos
-$conn = new mysqli("localhost", "root", "", "visiomex");
+$conn = new mysqli("localhost", "root", "M33ty-2003", "visiomex");
 
 // Verificar la conexión
 if ($conn->connect_error) {
@@ -48,6 +73,11 @@ $sql = "SELECT SUM(con_sc) as total_suma_sc FROM registro WHERE fecha BETWEEN '$
 $resultado_sc = $conn->query($sql);
 $fila_sc = $resultado_sc->fetch_assoc();
 $total_suma_sc = $fila_sc["total_suma_sc"];
+
+$personas = $total_suma_sc + $total_suma_cc;
+$porc_conc = ($total_suma_cc * 100)/$personas;
+$porc_sinc = ($total_suma_sc *100)/$personas;
+
 
 // Imprimir las sumas realizadas
 echo "El total de personas detectadas CON cubrebocas en los últimos " . $DIAS . " días es de: " . $total_suma_cc . "<br>";

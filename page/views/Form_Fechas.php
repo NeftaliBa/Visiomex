@@ -12,17 +12,30 @@ $DiasTranscurridos = floor((strtotime($fechaActual) - strtotime($fechaInicioAño
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="./resources/css/navbar.css">
+  <link rel="stylesheet" href="/resources/css/MostrarGrafica.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
 </head>
 <body>
-  QUIERES CONOCER LAS ESTADISTICAS DE UNA FECHA EN ESPECIFICO
+
+      <header> 
+      <div class="espacio">
+          <nav class="navegacion">
+              <ul class="menu">
+                  <p class="logo">Visiomex</p>
+                  <li><a href="Logout.php" class="owo">Cerrar Sesion</a></li>
+              </ul>
+          </nav>
+      </div>
+      </header>
+
+  <h2 class="titulo"> QUIERES CONOCER LAS ESTADISTICAS DE UNA FECHA EN ESPECIFICO </h2>
   <form action="MostrarGrafica1.php" method="POST">
     <label for="fecha">Selecciona la fecha:</label>
     <input type="text" id="fecha" name="fecha">
-
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-      <script>
+    <script>
         $(function() {
           $("#fecha").datepicker({
             dateFormat: "yy/mm/dd"
@@ -31,6 +44,9 @@ $DiasTranscurridos = floor((strtotime($fechaActual) - strtotime($fechaInicioAño
       </script>
     <button type="submit" class="Boton" name="enviar" value="fecha" >ENVIAR</button><br><br>
   </form>
+
+
+
 
 
   <form action="MostrarGrafica2.php" method="POST">  
