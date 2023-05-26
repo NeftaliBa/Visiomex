@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "visiomex");
+$connect = mysqli_connect("localhost", "root", "M33ty-2003", "visiomex");
 // aqui validamos al usuario cliente
 $NAME= test_input($_POST['name']);
 $PASSWORD= test_input($_POST['password']);

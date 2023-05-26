@@ -1,8 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/css/navbar.css">
+    <link rel="stylesheet" href="/resources/css/MostrarGrafica.css">
+    <title>Document</title>
+
+</head>
+<body>
+
+<header> 
+    <div class="espacio">
+        <nav class="navegacion">
+            <ul class="menu">
+                <p class="logo">Visiomex</p>
+                <li><a href="Logout.php" class="owo">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 <?php
 $DATE =$_POST["fecha"];//esta variable contiene la fecha exacta en la que el usaurio quiere conseguir datos
 
 // conectare a base de datos
-$conn = new mysqli("localhost", "root", "", "visiomex");
+$conn = new mysqli("localhost", "root", "M33ty-2003", "visiomex");
 
 // Verificar la conexión
 if ($conn->connect_error) {
