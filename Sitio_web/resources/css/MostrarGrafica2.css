@@ -2,7 +2,7 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.titulo-culero{
+.titulo{
     margin-top: 0px;
     text-align: center;
 }
@@ -16,7 +16,6 @@ body {
     border-collapse: collapse;
     border-color: #89aa89;
     border-radius: 10px;
-
 }
 tr:nth-child(even){ background-color: rgba(0, 0, 0, 0.05); }
 tr:hover{
@@ -42,6 +41,11 @@ tr{
     padding: 0.5rem 0.1rem;
 }
 
-.grafica{
-    margin-left: 29em;
+.grafica1{
+    float: right;
+    margin-top: -125px;
+}
+.grafica2{
+    float: right;
+    margin-top: 0;
 }
