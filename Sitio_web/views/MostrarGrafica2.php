@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resources/css/navbar.css">
     <link rel="stylesheet" href="../resources/css/MostrarGrafica2.css">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="/resources/img/icon.png">
+    <title>Data</title>
 </head>
 <body>
 
@@ -76,6 +77,7 @@ $total_suma_sc = $fila_sc["total_suma_sc"];
 $personas = $total_suma_sc + $total_suma_cc;
 $porc_conc = ($total_suma_cc * 100)/$personas;
 $porc_sinc = ($total_suma_sc *100)/$personas;
+
 
 ?>
 <h2 class="titulo">Este año</h2>

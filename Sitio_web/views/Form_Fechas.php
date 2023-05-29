@@ -16,7 +16,9 @@ $DiasTranscurridos = floor((strtotime($fechaActual) - strtotime($fechaInicioAño
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="../resources/css/navbar.css">
   <link rel="stylesheet" href="../resources/css/form_fechas.css">
+  <link rel="icon" type="image/x-icon" href="/resources/img/icon.png">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+  <title>Fechas</title>
 </head>
 <body>
 

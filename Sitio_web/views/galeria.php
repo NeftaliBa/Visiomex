@@ -5,12 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/resources/css/navbar.css">
+        <link rel="stylesheet" href="/resources/css/galeria.css">
+        <link rel="icon" type="image/x-icon" href="/resources/img/icon.png">
 
-        <title></title>
+
+        <title>Galeria</title>
 </head>
 <body>
         <header class="">
-        <div class="espacio">Menú</div>
+        <div class="espacio"></div>
                 <nav class="navegacion">
                         <ul class = menu>
                         <p class="logo">Visiomex</p>

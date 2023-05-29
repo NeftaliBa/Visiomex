@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../resources/css/navbar.css">
     <link rel="stylesheet" href="../resources/css/MostrarGrafica2.css">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="/resources/img/icon.png">
+
+    <title>Data</title>
 </head>
 <body>
 
