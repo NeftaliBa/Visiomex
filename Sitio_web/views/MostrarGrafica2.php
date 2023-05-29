@@ -79,9 +79,24 @@ $porc_conc = ($total_suma_cc * 100)/$personas;
 $porc_sinc = ($total_suma_sc *100)/$personas;
 
 
+switch($DIAS){
+    case 1:
+        ?> <h2 class="titulo">Ayer</h2> <?php
+        break;
+    case 6:
+        ?> <h2 class="titulo">Los ultimos 7 dias</h2> <?php
+        break;
+    case 29:
+        ?> <h2 class="titulo">El ultimo mes</h2> <?php
+        break;
+    default:
+        ?> <h2 class="titulo">Este año</h2> <?php
+
+}
+
 ?>
-<h2 class="titulo">Este año</h2>
-           <head>
+
+<head>
        <!--Load the AJAX API-->
        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
        <script type="text/javascript">

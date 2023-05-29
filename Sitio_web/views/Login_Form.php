@@ -12,7 +12,6 @@
 </head>
 <body>
         <header class="">
-        <div class="espacio"></div>
                 <nav class="navegacion">
                         <ul class = menu>
                         <p class="logo">Visiomex</p>

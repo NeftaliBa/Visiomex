@@ -1,3 +1,206 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding:0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
 header{
     margin-top: -20px;
+    width: 100%;
+    height: 600px;
+
 }
+.slider{
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #eb0202;
+    float: left;
+}
+
+.slides{
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 20%;
+    transition: 2s;
+}
+
+.slide img{
+    width: 800px;
+    height: 500px;
+}
+
+.navigation-manual{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid #529bb8;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+
+.manual-btn:hover{
+    background: #529bb8;
+}
+
+#radio1:checked ~ .firsl{
+    margin-left: 0;
+}
+#radio2:checked ~ .firsl{
+    margin-left: -20%;
+}
+#radio3:checked ~ .firsl{
+    margin-left: -40%;
+}
+#radio4:checked ~ .firsl{
+    margin-left: -60%;
+}
+#radio5:checked ~ .firsl{
+    margin-left: -80%;
+}
+#radio6:checked ~ .firsl{
+    margin-left: -100%;
+}
+#radio7:checked ~ .firsl{
+    margin-left: -120%;
+}
+#radio8:checked ~ .firsl{
+    margin-left: -140%;
+}
+#radio9:checked ~ .firsl{
+    margin-left: -160%;
+}
+#radio10:checked ~ .firsl{
+    margin-left: -180%;
+}
+#radio11:checked ~ .firsl{
+    margin-left: -200%;
+}
+#radio12:checked ~ .firsl{
+    margin-left: -220%;
+}
+#radio13:checked ~ .firsl{
+    margin-left: -240%;
+}
+#radio14:checked ~ .firsl{
+    margin-left: -260%;
+}
+#radio15:checked ~ .firsl{
+    margin-left: -280%;
+}
+#radio16:checked ~ .firsl{
+    margin-left: -300%;
+}
+#radio17:checked ~ .firsl{
+    margin-left: -320%;
+}
+
+.navigation-auto{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid #529bb8;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.portada{
+    margin-top: -20px;
+    width:  450px;
+    height: 450px;
+    float: left;
+
+
+}
+.wave{
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+}
+
+
+.info{
+    margin-top: -40px;
+    margin-right: 40px;
+    float: right;
+    width: 30%;
+    height: 500px;
+    background-color: white;
+}
+.textos-header{
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.contenedor {
+    margin: 0;
+	width: 40%;
+    height: 100%;
+	max-width: 1000px;
+    float: left;
+}
+
+

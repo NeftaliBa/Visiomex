@@ -53,7 +53,7 @@ if ($conn->connect_error) {
     </div>
 -->
 
-<h2 class="titulo">Dia <?php  ?></h2>
+<h2 class="titulo">Dia <?php echo $DATE ?></h2>
 
 
     <table class="amortization">

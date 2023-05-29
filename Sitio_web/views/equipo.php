@@ -13,7 +13,6 @@
 </head>
 <body>
         <header class="">
-        <div class="espacio"></div>
                 <nav class="navegacion">
                         <ul class = menu>
                         <p class="logo">Visiomex</p>
@@ -28,76 +27,75 @@
 
 
         <div class="container-cards">
-        <div class="card">
+                <div class="card">
                 <div class="cover-card">
-                    <img src="/resources/img/person.jpeg" alt="">
+                    <img src="/resources/img/we/angel.jpeg" alt="">
                 </div>
                 <h2>Angel Ernesto Jimenez Hernandez</h2>
-                <p>Ejecutivo dedicado con 5 años de experiencia y atención al cliente excelente.</p>
+                <p>Encargado de la documentacion del proyecto</p>
                 <hr>
                 <div class="footer-card">
-                    <h3 class="extra-info">En dreambucks desde</h3>
-
+                    <h3 class="extra-info">Documentacion</h3>
                 </div>
             </div>
             
-            <div class="card">
+                <div class="card">
                 <div class="cover-card">
-                    <img src="/resources/img/person.jpeg" alt="">
+                    <img src="/resources/img/we/geremi.jpeg" alt="">
                 </div>
                 <h2>Geremi Josue Gomez Chilapa</h2>
-                <p>Ejecutivo dedicado con 5 años de experiencia y atención al cliente excelente.</p>
+                <p>Encargado de la documentacion del proyecto</p>
                 <hr>
                 <div class="footer-card">
-                    <h3 class="extra-info">En dreambucks desde</h3>
+                    <h3 class="extra-info">Documentacion</h3>
                 </div>
             </div>
 
             <div class="card">
                 <div class="cover-card">
-                    <img src="/resources/img/person.jpeg" alt="">
+                    <img src="/resources/img/we/matias.jpeg" alt="">
                 </div>
                 <h2>Matias Tirado Morquecho</h2>
-                <p>Administrador, filantropo, modelo, ejecutivo de Dreambucks el cual lleva un reconocido historial de apoyo a sus clientes.</p>
+                <p>Desarrollador principal de la pagina</p>
                 <hr>
                 <div class="footer-card">
-                    <h3 class="extra-info">En dreambucks desde</h3>
+                    <h3 class="extra-info">Desarrollo</h3>
                 </div>
             </div>
 
             <div class="card">
                 <div class="cover-card">
-                    <img src="/resources/img/person.jpeg" alt="">
+                    <img src="/resources/img/we/mauricio.jpeg" alt="">
                 </div>
                 <h2>Mauricio Chavez Mancilla</h2>
-                <p>Administrador, filantropo, modelo, ejecutivo de Dreambucks el cual lleva un reconocido historial de apoyo a sus clientes.</p>
+                <p>Desarrollador de el codigo de la raspberry</p>
                 <hr>
                 <div class="footer-card">
-                    <h3 class="extra-info">En dreambucks desde</h3>
+                    <h3 class="extra-info">Desarrollo</h3>
                 </div>
             </div>
 
             <div class="card">
                 <div class="cover-card">
-                    <img src="/resources/img/person.jpeg" alt="">
+                    <img src="/resources/img/we/yahir.jpeg" alt="">
                 </div>
                 <h2>Yahir Alejandro Estrada Santiago</h2>
-                <p>Ejecutivo joven, entusiasta el cual brinda de uns servicio al cliente acogedor y siempre con la iniciativa de resolver problemas con cuentas.</p>
+                <p>Encargado de la documentacion del proyecto</p>
                 <hr>
                 <div class="footer-card">
-                    <h3 class="extra-info">En dreambucks desde</h3>
+                    <h3 class="extra-info">Documentacion</h3>
                 </div>
             </div>
 
             <div class="card">
                 <div class="cover-card">
-                    <img src="/resources/img/person.jpeg" alt="">
+                    <img src="/resources/img/we/neftali.jpeg" alt="">
                 </div>
                 <h2>Neftali Barrera Rodriguez</h2>
-                <p>Ejecutivo con alto conocimiento en finanzas, es muy dificl interceptar errores por parte de este gran ejecutivo.</p>
+                <p>Engargado del estilo de la pagina</p>
                 <hr>
                 <div class="footer-card">
-                    <h3 class="extra-info">En dreambucks desde</h3>
+                    <h3 class="extra-info">Desarrollo</h3>
                 </div>
             </div>
         </div>

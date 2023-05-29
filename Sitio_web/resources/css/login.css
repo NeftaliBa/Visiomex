@@ -57,6 +57,7 @@ form .userdata {
     transform: translateY(-50%);
     font-size: 16px;
     transition: .5s;
+    pointer-events: none;
 }
 
 .userdata span::before {
