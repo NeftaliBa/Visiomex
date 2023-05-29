@@ -1,12 +1,19 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding:0;
+    box-sizing: border-box;
 }
-
 .titulo{
     margin-top: 0px;
     text-align: center;
 }
-
+header{
+    margin-top: -20px;
+}
 .amortization{
     width: 50%;
     /*
