@@ -71,9 +71,7 @@ $DiasTranscurridos = floor((strtotime($fechaActual) - strtotime($fechaInicioAño
       -->
 <div class="container-cards">
             <div class="card">
-            <div class="cover-card">
-                    <img src="/resources/img/" alt="">
-                </div>
+
                 <h2>Dia en particular</h2>
                 <p>Escoja un dia en especifico para checar sus estadisticas</p>
 
@@ -89,15 +87,12 @@ $DiasTranscurridos = floor((strtotime($fechaActual) - strtotime($fechaInicioAño
                   });
                 </script>
               </div>
-              <input class="" type="submit" value="Enviar">
+              <input class="boton" type="submit" value="Enviar">
             </form>
 
             </div>
             
             <div class="card">
-            <div class="cover-card">
-                    <img src="/resources/img/" alt="">
-                </div>
                 <h2>Rango de dias</h2>
                 <p>Escoja un rango de dias para poder ver sus estadisticas</p>
 
@@ -110,7 +105,7 @@ $DiasTranscurridos = floor((strtotime($fechaActual) - strtotime($fechaInicioAño
                     <option value="<?php echo $DiasTranscurridos?>">Este año </option>
                   </select>
                 </div>
-                <input class="" type="submit" value="Enviar">
+                <input class="boton" type="submit" value="Enviar">
                 <form>
 
             </div>

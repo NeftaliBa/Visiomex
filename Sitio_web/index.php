@@ -18,8 +18,9 @@
                         <li><a href="index.php">Inicio </a></li>
                         <li><a href="views/Login_Form.php">Iniciar sesion</a></li>
                         <li><a href="views/equipo.php">Sobre nosotros</a></li>
-                        <li><a href="views/galeria.php">Galeria </a></li>
-                        </ul>
+                        <!--
+                                <li><a href="galeria.php">Galeria </a></li>
+                        -->                        </ul>
                 </nav>
                 <img src="/resources/img/logo.png" alt="portada" class="portada">
                 <div class="wave" style="height: 150px; overflow: hidden;" >

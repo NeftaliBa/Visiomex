@@ -19,8 +19,9 @@
                         <li><a href="../index.php">Inicio </a></li>
                         <li><a href="Login_Form.php">Iniciar sesion</a></li>
                         <li><a href="equipo.php">Sobre nosotros</a></li>
-                        <li><a href="galeria.php">Galeria </a></li>
-                        </ul>
+                        <!--
+                                <li><a href="galeria.php">Galeria </a></li>
+                        -->                        </ul>
                 </nav>
         </header>
     <main>

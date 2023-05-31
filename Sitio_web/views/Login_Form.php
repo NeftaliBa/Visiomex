@@ -17,7 +17,9 @@
                         <p class="logo">Visiomex</p>
                         <li><a href="../index.php">Inicio </a></li>
                         <li><a href="equipo.php">Sobre nosotros</a></li>
-                        <li><a href="galeria.php">Galeria </a></li>
+                        <!--
+                                <li><a href="galeria.php">Galeria </a></li>
+                        -->
                         </ul>
                 </nav>
         </header>

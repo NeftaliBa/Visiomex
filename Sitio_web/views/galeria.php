@@ -7,10 +7,7 @@
         <link rel="stylesheet" href="/resources/css/navbar.css">
         <link rel="stylesheet" href="/resources/css/galeria.css">
         <link rel="icon" type="image/x-icon" href="/resources/img/icon.png">
-<!--
-        <link rel="stylesheet" href="/resources/css/video-js.css">
-	<script src="/resources/js/video.js"></script>
--->
+
 
 
         <title>Galeria</title>
@@ -26,7 +23,10 @@
                         <li><a href="galeria.php">Galeria </a></li>
                         </ul>
                 </nav>
-<div class="slider">
+                <img src="/resources/img/portada.gif" alt="portada" class="portada">
+
+                <!--
+                        <div class="slider">
         <div class="slides">
                 <input type="radio", name="radio-btn" id="radio1">
                 <input type="radio", name="radio-btn" id="radio2">
@@ -97,7 +97,7 @@
                 <div class="slide first">
                         <img src="/resources/img/galeria/files/1-.gif" alt="portada" class="portada">
                 </div>
-
+                
                 <div class="navigation-auto">
                         <div class="auto-btn1"></div>
                         <div class="auto-btn2"></div>
@@ -139,8 +139,9 @@
                 </div>
         </div>
 </div>
-                <!--
-                <img src="/resources/img/logo.png" alt="portada" class="portada">
+-->
+<!--
+        <img src="/resources/img/portada.gif" alt="portada" class="portada">
                 --> 
                 <div class="wave" style="height: 150px; overflow: hidden;" >
                 <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
